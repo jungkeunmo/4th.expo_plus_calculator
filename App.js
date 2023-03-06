@@ -7,8 +7,24 @@ const App = () => {
   const [num2, setNum2] = useState(0);
   const [n, setN] = useState(0);
 
+  const [num3, setNum3] = useState(0);
+  const [num4, setNum4] = useState(0);
+  const [n2, setN2] = useState(0);
+
+  const [num5, setNum5] = useState(0);
+  const [num6, setNum6] = useState(0);
+  const [n3, setN3] = useState(0);
+
   const plusHandler = () => {
     setN(Number(num1) + Number(num2));
+  };
+
+  const minusHandler = () => {
+    setN2(Number(num3) - Number(num4));
+  };
+
+  const divideHandler = () => {
+    setN3(Number(num5) * Number(num6));
   };
 
   return (
@@ -24,6 +40,8 @@ const App = () => {
         }}
       >
         <Text style={{ fontSize: 24 }}>{n}</Text>
+        <Text style={{ fontSize: 24 }}>{n2}</Text>
+        <Text style={{ fontSize: 24 }}>{n3}</Text>
       </View>
 
       <View style={styles.viewBox2}>
@@ -42,6 +60,42 @@ const App = () => {
         ></TextInput>
 
         <Button title="실행하기" onPress={() => plusHandler()}></Button>
+      </View>
+
+      <View style={styles.viewBox2}>
+        <TextInput
+          style={styles.plusInput}
+          placeholder="...."
+          keyboardType="numeric"
+          onChangeText={(text) => setNum3(text)}
+        ></TextInput>
+        <Text style={{ fontSize: 27, marginTop: 1 }}>-</Text>
+        <TextInput
+          style={styles.plusInput}
+          placeholder="...."
+          keyboardType="numeric"
+          onChangeText={(text) => setNum4(text)}
+        ></TextInput>
+
+        <Button title="실행하기" onPress={() => minusHandler()}></Button>
+      </View>
+
+      <View style={styles.viewBox2}>
+        <TextInput
+          style={styles.plusInput}
+          placeholder="...."
+          keyboardType="numeric"
+          onChangeText={(text) => setNum5(text)}
+        ></TextInput>
+        <Text style={{ fontSize: 27, marginTop: 8 }}>*</Text>
+        <TextInput
+          style={styles.plusInput}
+          placeholder="...."
+          keyboardType="numeric"
+          onChangeText={(text) => setNum6(text)}
+        ></TextInput>
+
+        <Button title="실행하기" onPress={() => divideHandler()}></Button>
       </View>
     </View>
   );
@@ -62,7 +116,6 @@ const styles = StyleSheet.create({
   },
 
   viewBox2: {
-    flex: 1,
     flexDirection: "row",
     margin: 20,
   },
@@ -78,8 +131,8 @@ const styles = StyleSheet.create({
   },
 
   plusButton: {
-    width: 100,
-    height: 40,
+    width: 40,
+    height: 20,
     backgroundColor: "#ecf0f1",
     borderRadius: 8,
     padding: 5,
