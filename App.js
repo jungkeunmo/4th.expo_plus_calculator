@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Text, Button } from "react-native";
 
 const App = () => {
-  let plusNum = 0;
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [n, setN] = useState(0);
@@ -15,6 +14,10 @@ const App = () => {
   const [num6, setNum6] = useState(0);
   const [n3, setN3] = useState(0);
 
+  const [num7, setNum7] = useState(0);
+  const [num8, setNum8] = useState(0);
+  const [n4, setN4] = useState(0);
+
   const plusHandler = () => {
     setN(Number(num1) + Number(num2));
   };
@@ -23,8 +26,12 @@ const App = () => {
     setN2(Number(num3) - Number(num4));
   };
 
-  const divideHandler = () => {
+  const multiplyHandler = () => {
     setN3(Number(num5) * Number(num6));
+  };
+
+  const divideHandler = () => {
+    setN4(Number(num7) / Number(num8));
   };
 
   return (
@@ -32,7 +39,7 @@ const App = () => {
       <View
         style={{
           width: 390,
-          height: 150,
+          height: 200,
           justifyContent: "center",
           alignItems: "center",
           borderBottomColor: "#000",
@@ -42,6 +49,7 @@ const App = () => {
         <Text style={{ fontSize: 24 }}>{n}</Text>
         <Text style={{ fontSize: 24 }}>{n2}</Text>
         <Text style={{ fontSize: 24 }}>{n3}</Text>
+        <Text style={{ fontSize: 24 }}>{n4}</Text>
       </View>
 
       <View style={styles.viewBox2}>
@@ -93,6 +101,24 @@ const App = () => {
           placeholder="...."
           keyboardType="numeric"
           onChangeText={(text) => setNum6(text)}
+        ></TextInput>
+
+        <Button title="실행하기" onPress={() => multiplyHandler()}></Button>
+      </View>
+
+      <View style={styles.viewBox2}>
+        <TextInput
+          style={styles.plusInput}
+          placeholder="...."
+          keyboardType="numeric"
+          onChangeText={(text) => setNum7(text)}
+        ></TextInput>
+        <Text style={{ fontSize: 27, marginTop: 1 }}>/</Text>
+        <TextInput
+          style={styles.plusInput}
+          placeholder="...."
+          keyboardType="numeric"
+          onChangeText={(text) => setNum8(text)}
         ></TextInput>
 
         <Button title="실행하기" onPress={() => divideHandler()}></Button>
